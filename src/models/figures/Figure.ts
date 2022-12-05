@@ -1,0 +1,38 @@
+import { Colors } from "../Colors";
+import logo from "../../assets/black-knight.png";
+import { Cell } from "../Cell";
+import { Bishop } from "./Bishop";
+
+export enum FigureNames {
+  FIGURE = "Figure",
+  PAWN = "Pawn",
+  ROOK = "Rook",
+  KNIGHT = "Knight",
+  BISHOP = "Bishop",
+  QUEEN = "Queen",
+  KING = "King",
+}
+
+export class Figure {
+  color: Colors;
+  logo: typeof logo | null;
+  cell: Cell;
+  name: FigureNames;
+  id: number;
+
+  constructor(color: Colors, cell: Cell) {
+    this.color = color;
+    this.cell = cell;
+    this.cell.figure = this;
+    this.logo = null;
+    this.name = FigureNames.FIGURE;
+    this.id = Math.random();
+  }
+
+  canMove(target: Cell): boolean {
+    if (this.color === target.figure?.color) return false;
+    if (target.figure?.name === FigureNames.KING) return false;
+    return true;
+  }
+  moveFigure(target: Cell) {}
+}
