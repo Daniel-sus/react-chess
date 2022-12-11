@@ -34,5 +34,6 @@ export class Figure {
     if (target.figure?.name === FigureNames.KING) return false;
     return true;
   }
+  
   moveFigure(target: Cell) {}
 }
