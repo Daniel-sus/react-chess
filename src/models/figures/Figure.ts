@@ -1,7 +1,6 @@
 import { Colors } from "../Colors";
 import logo from "../../assets/black-knight.png";
 import { Cell } from "../Cell";
-import { Bishop } from "./Bishop";
 
 export enum FigureNames {
   FIGURE = "Figure",
@@ -34,6 +33,6 @@ export class Figure {
     if (target.figure?.name === FigureNames.KING) return false;
     return true;
   }
-  
+
   moveFigure(target: Cell) {}
 }

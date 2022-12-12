@@ -1,6 +1,7 @@
 import { Cell } from "./Cell";
 import { Colors } from "./Colors";
 import { Bishop } from "./figures/Bishop";
+import { Figure } from "./figures/Figure";
 import { King } from "./figures/King";
 import { Knight } from "./figures/Knight";
 import { Pawn } from "./figures/Pawn";
@@ -9,6 +10,16 @@ import { Rook } from "./figures/Rook";
 
 export class Board {
   cells: Cell[][] = [];
+  eatenBlackFigures: Figure[] = [];
+  eatenWhiteFigures: Figure[] = [];
+
+  public addEatenFigures(figure: Figure) {
+    if (figure.color === Colors.BLACK) {
+      this.eatenBlackFigures.push(figure);
+    } else {
+      this.eatenWhiteFigures.push(figure);
+    }
+  }
 
   public initCells() {
     for (let i = 0; i < 8; i++) {
@@ -37,6 +48,8 @@ export class Board {
   public getCopyBoard(): Board {
     const newBoard = new Board();
     newBoard.cells = this.cells;
+    newBoard.eatenBlackFigures = this.eatenBlackFigures;
+    newBoard.eatenWhiteFigures = this.eatenWhiteFigures;
     return newBoard;
   }
 

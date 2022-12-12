@@ -18,6 +18,7 @@ const BoardComponent: React.FC<BoardProps> = ({
   swapPlayer,
 }) => {
   const [selectedCell, setSelectedCell] = React.useState<Cell | null>(null);
+  const lettersArray = ["A", "B", "C", "D", "E", "F", "G ", "H"];
 
   function click(cell: Cell) {
     if (
@@ -54,20 +55,58 @@ const BoardComponent: React.FC<BoardProps> = ({
       <h3 style={{ marginBottom: "10px" }}>
         Current Player: {currentPlayer?.color}
       </h3>
-      <div className="board">
-        {board.cells.map((row, index) => (
-          <React.Fragment key={index}>
-            {row.map((cell) => (
-              <CellComponent
-                key={cell.id}
-                cell={cell}
-                selected={
-                  cell.x === selectedCell?.x && cell.y === selectedCell?.y
-                }
-                click={click}
-              />
-            ))}
-          </React.Fragment>
+      <div style={{ display: "flex" }}>
+        <div className="board">
+          {board.cells.map((row, index) => (
+            <React.Fragment key={index}>
+              {row.map((cell) => (
+                <CellComponent
+                  key={cell.id}
+                  cell={cell}
+                  selected={
+                    cell.x === selectedCell?.x && cell.y === selectedCell?.y
+                  }
+                  click={click}
+                />
+              ))}
+            </React.Fragment>
+          ))}
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {lettersArray.map((letter, index) => (
+            <div
+              key={index}
+              style={{
+                width: 64,
+                height: 64,
+                paddingLeft: 4,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                fontSize: 20,
+              }}
+            >
+              {index}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ display: "flex" }}>
+        {lettersArray.map((letter, index) => (
+          <div
+            key={index}
+            style={{
+              width: 64,
+              height: 64,
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              fontSize: 20,
+            }}
+          >
+            {letter}
+          </div>
         ))}
       </div>
     </div>

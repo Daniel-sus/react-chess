@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import BoardComponent from "./components/BoardComponent";
+import EatenFiguresComponent from "./components/EatenFiguresComponent";
 import { Board } from "./models/Board";
 import { Colors } from "./models/Colors";
 import { Player } from "./models/Player";
@@ -40,6 +41,10 @@ const App = () => {
         setBoard={setBoard}
         swapPlayer={swapPlayer}
         currentPlayer={currentPlayer}
+      />
+      <EatenFiguresComponent
+        lostWhiteFigures={board.eatenWhiteFigures}
+        lostBlackFigures={board.eatenBlackFigures}
       />
     </div>
   );
