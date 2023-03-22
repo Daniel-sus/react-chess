@@ -12,36 +12,32 @@ const EatenFiguresComponent: React.FC<PropsTypes> = ({
 }) => {
   console.log({ lostBlackFigures, lostWhiteFigures });
   return (
-    <div
-      style={{
-        backgroundColor: "lightgray",
-        display: "flex",
-        flexDirection: "column",
-        width: 200,
-        height: 600,
-      }}
-    >
-      <div style={{ height: "50vh", textAlign: "center" }}>
-        <h3>Black figures</h3>
-        {lostBlackFigures.map((figure, index) => (
-          <div key={index}>
-            {figure.name}
-            {figure.logo && (
-              <img style={{ width: 40, height: 40 }} src={figure.logo} />
-            )}
-          </div>
-        ))}
+    <div className="battleLogWrapper">
+      <div className="columnWrapper">
+        <h3 className="columnName">Black figures</h3>
+        <div className="log">
+          {lostBlackFigures.map((figure, index) => (
+            <div className="element" key={index}>
+              {figure.name}
+              {figure.logo && (
+                <img style={{ width: 40, height: 40 }} src={figure.logo} />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-      <div style={{ height: "50vh", textAlign: "center" }}>
-        <h3>White figures</h3>
-        {lostWhiteFigures.map((figure, index) => (
-          <div key={index}>
-            {figure.name}
-            {figure.logo && (
-              <img style={{ width: 40, height: 40 }} src={figure.logo} />
-            )}
-          </div>
-        ))}
+      <div className="columnWrapper">
+        <h3 className="columnName">White figures</h3>
+        <div className="log">
+          {lostWhiteFigures.map((figure, index) => (
+            <div className="element" key={index}>
+              {figure.name}
+              {figure.logo && (
+                <img style={{ width: 40, height: 40 }} src={figure.logo} />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

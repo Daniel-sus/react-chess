@@ -52,9 +52,7 @@ const BoardComponent: React.FC<BoardProps> = ({
 
   return (
     <div>
-      <h3 style={{ marginBottom: "10px" }}>
-        Current Player: {currentPlayer?.color}
-      </h3>
+      <h3 className="currentPlayer">Current Player: {currentPlayer?.color}</h3>
       <div style={{ display: "flex" }}>
         <div className="board">
           {board.cells.map((row, index) => (
@@ -74,18 +72,7 @@ const BoardComponent: React.FC<BoardProps> = ({
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {lettersArray.map((letter, index) => (
-            <div
-              key={index}
-              style={{
-                width: 64,
-                height: 64,
-                paddingLeft: 4,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                fontSize: 20,
-              }}
-            >
+            <div key={index} className="numbersFrame">
               {index}
             </div>
           ))}
@@ -94,17 +81,7 @@ const BoardComponent: React.FC<BoardProps> = ({
 
       <div style={{ display: "flex" }}>
         {lettersArray.map((letter, index) => (
-          <div
-            key={index}
-            style={{
-              width: 64,
-              height: 64,
-              display: "flex",
-              alignItems: "flex-start",
-              justifyContent: "center",
-              fontSize: 20,
-            }}
-          >
+          <div key={index} className="lettersFrame">
             {letter}
           </div>
         ))}

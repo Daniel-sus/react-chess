@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: #464646;
 }
 
 .app {
@@ -9,19 +15,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #b3b3b3;
+  gap: 50px;
+  font-family: Nunito;
 }
 
 .board {
-  width: calc(64px * 8);
-  height: calc(64px * 8);
+  width: calc(80px * 8);
+  height: calc(80px * 8);
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .cell {
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,20 +44,82 @@
 }
 
 .black {
-  background-color: rgb(136, 50, 50);
+  /* background-color: rgb(136, 50, 50); */
+  background-color: #eeeed2;
 }
 
 .white {
-  background-color: rgb(241, 212, 147);
+  /* background-color: rgb(241, 212, 147); */
+  background-color: #769656;
 }
 
 .selected {
-  background-color: rgb(118, 0, 0);
+  /* background-color: rgb(118, 0, 0); */
+  background-color: #baca44;
 }
 
 .available {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background-color: rgb(59, 127, 59);
+}
+
+.battleLogWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 200px;
+  height: 709px;
+}
+
+.columnWrapper {
+  height: 50%;
+  text-align: center;
+  background-color: rgb(96, 96, 96);
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.columnName {
+  padding: 0px 0px 20px 0px;
+}
+
+.log {
+  height: 100%;
+  overflow: auto;
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.currentPlayer {
+  margin-bottom: 10px;
+  font-weight: 800;
+  font-size: 24px;
+  color: #b3b3b3;
+}
+
+.numbersFrame {
+  width: 20px;
+  height: 80px;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 20px;
+}
+
+.lettersFrame {
+  width: 80px;
+  height: 20px;
+  padding-top: 6px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 20px;
 }

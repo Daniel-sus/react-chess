@@ -90,6 +90,8 @@ export class Cell {
     return true;
   }
 
+  isCellUnderAttack() {}
+
   setFigure(figure: Figure) {
     this.figure = figure;
     this.figure.cell = this;
